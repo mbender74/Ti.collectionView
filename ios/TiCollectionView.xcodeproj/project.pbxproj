@@ -1,0 +1,592 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		24416B8111C4CA220047AFDD /* Build & Test */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */;
+			buildPhases = (
+				24416B8011C4CA220047AFDD /* ShellScript */,
+			);
+			dependencies = (
+				24416B8511C4CA280047AFDD /* PBXTargetDependency */,
+			);
+			name = "Build & Test";
+			productName = "Build & test";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		1E65CF581A12BDF800187D0B /* TiCollectionviewCollectionItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E65CF561A12BDF800187D0B /* TiCollectionviewCollectionItem.h */; };
+		1E65CF591A12BDF800187D0B /* TiCollectionviewCollectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E65CF571A12BDF800187D0B /* TiCollectionviewCollectionItem.m */; };
+		1E65CF5C1A12C0DF00187D0B /* TiCollectionviewCollectionItemProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E65CF5A1A12C0DF00187D0B /* TiCollectionviewCollectionItemProxy.h */; };
+		1E65CF5D1A12C0DF00187D0B /* TiCollectionviewCollectionItemProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E65CF5B1A12C0DF00187D0B /* TiCollectionviewCollectionItemProxy.m */; };
+		1E65CF621A12C16000187D0B /* TiCollectionviewCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E65CF5E1A12C16000187D0B /* TiCollectionviewCollectionView.h */; };
+		1E65CF631A12C16000187D0B /* TiCollectionviewCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E65CF5F1A12C16000187D0B /* TiCollectionviewCollectionView.m */; };
+		1E65CF641A12C16000187D0B /* TiCollectionviewCollectionViewProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E65CF601A12C16000187D0B /* TiCollectionviewCollectionViewProxy.h */; };
+		1E65CF651A12C16000187D0B /* TiCollectionviewCollectionViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E65CF611A12C16000187D0B /* TiCollectionviewCollectionViewProxy.m */; };
+		24DD6CF91134B3F500162E58 /* TiCollectionviewModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DD6CF71134B3F500162E58 /* TiCollectionviewModule.h */; };
+		24DD6CFA1134B3F500162E58 /* TiCollectionviewModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* TiCollectionviewModule.m */; };
+		24DE9E1111C5FE74003F90F6 /* TiCollectionviewModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* TiCollectionviewModuleAssets.h */; };
+		24DE9E1211C5FE74003F90F6 /* TiCollectionviewModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* TiCollectionviewModuleAssets.m */; };
+		2C69B35426CEBF0800AC945D /* CHTCollectionViewWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C69B35226CEBF0800AC945D /* CHTCollectionViewWaterfallLayout.m */; };
+		2C69B35526CEBF0800AC945D /* CHTCollectionViewWaterfallLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C69B35326CEBF0800AC945D /* CHTCollectionViewWaterfallLayout.h */; };
+		AA747D9F0F9514B9006C5449 /* TiCollectionview_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TiCollectionview_Prefix.pch */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		B63B54F91BF1F9300027F0C7 /* TiCollectionviewCollectionSectionProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = B63B54F71BF1F9300027F0C7 /* TiCollectionviewCollectionSectionProxy.h */; };
+		B63B54FA1BF1F9300027F0C7 /* TiCollectionviewCollectionSectionProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = B63B54F81BF1F9300027F0C7 /* TiCollectionviewCollectionSectionProxy.m */; };
+		B63B54FD1BF1F9480027F0C7 /* TiSearchDisplayController.h in Headers */ = {isa = PBXBuildFile; fileRef = B63B54FB1BF1F9480027F0C7 /* TiSearchDisplayController.h */; };
+		B63B54FE1BF1F9480027F0C7 /* TiSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63B54FC1BF1F9480027F0C7 /* TiSearchDisplayController.m */; };
+		B63B55011BF206E30027F0C7 /* TiCollectionviewHeaderFooterReusableView.h in Headers */ = {isa = PBXBuildFile; fileRef = B63B54FF1BF206E30027F0C7 /* TiCollectionviewHeaderFooterReusableView.h */; };
+		B63B55021BF206E30027F0C7 /* TiCollectionviewHeaderFooterReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B63B55001BF206E30027F0C7 /* TiCollectionviewHeaderFooterReusableView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		24416B8411C4CA280047AFDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = TiCollectionView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1E65CF561A12BDF800187D0B /* TiCollectionviewCollectionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiCollectionviewCollectionItem.h; path = Classes/TiCollectionviewCollectionItem.h; sourceTree = "<group>"; };
+		1E65CF571A12BDF800187D0B /* TiCollectionviewCollectionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiCollectionviewCollectionItem.m; path = Classes/TiCollectionviewCollectionItem.m; sourceTree = "<group>"; };
+		1E65CF5A1A12C0DF00187D0B /* TiCollectionviewCollectionItemProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiCollectionviewCollectionItemProxy.h; path = Classes/TiCollectionviewCollectionItemProxy.h; sourceTree = "<group>"; };
+		1E65CF5B1A12C0DF00187D0B /* TiCollectionviewCollectionItemProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiCollectionviewCollectionItemProxy.m; path = Classes/TiCollectionviewCollectionItemProxy.m; sourceTree = "<group>"; };
+		1E65CF5E1A12C16000187D0B /* TiCollectionviewCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiCollectionviewCollectionView.h; path = Classes/TiCollectionviewCollectionView.h; sourceTree = "<group>"; };
+		1E65CF5F1A12C16000187D0B /* TiCollectionviewCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiCollectionviewCollectionView.m; path = Classes/TiCollectionviewCollectionView.m; sourceTree = "<group>"; };
+		1E65CF601A12C16000187D0B /* TiCollectionviewCollectionViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiCollectionviewCollectionViewProxy.h; path = Classes/TiCollectionviewCollectionViewProxy.h; sourceTree = "<group>"; };
+		1E65CF611A12C16000187D0B /* TiCollectionviewCollectionViewProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiCollectionviewCollectionViewProxy.m; path = Classes/TiCollectionviewCollectionViewProxy.m; sourceTree = "<group>"; };
+		24DD6CF71134B3F500162E58 /* TiCollectionviewModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiCollectionviewModule.h; path = Classes/TiCollectionviewModule.h; sourceTree = "<group>"; };
+		24DD6CF81134B3F500162E58 /* TiCollectionviewModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiCollectionviewModule.m; path = Classes/TiCollectionviewModule.m; sourceTree = "<group>"; };
+		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
+		24DE9E0F11C5FE74003F90F6 /* TiCollectionviewModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiCollectionviewModuleAssets.h; path = Classes/TiCollectionviewModuleAssets.h; sourceTree = "<group>"; };
+		24DE9E1011C5FE74003F90F6 /* TiCollectionviewModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiCollectionviewModuleAssets.m; path = Classes/TiCollectionviewModuleAssets.m; sourceTree = "<group>"; };
+		2C69B35226CEBF0800AC945D /* CHTCollectionViewWaterfallLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTCollectionViewWaterfallLayout.m; sourceTree = "<group>"; };
+		2C69B35326CEBF0800AC945D /* CHTCollectionViewWaterfallLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTCollectionViewWaterfallLayout.h; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* TiCollectionview_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiCollectionview_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B63B54F71BF1F9300027F0C7 /* TiCollectionviewCollectionSectionProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiCollectionviewCollectionSectionProxy.h; path = Classes/TiCollectionviewCollectionSectionProxy.h; sourceTree = "<group>"; };
+		B63B54F81BF1F9300027F0C7 /* TiCollectionviewCollectionSectionProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiCollectionviewCollectionSectionProxy.m; path = Classes/TiCollectionviewCollectionSectionProxy.m; sourceTree = "<group>"; };
+		B63B54FB1BF1F9480027F0C7 /* TiSearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiSearchDisplayController.h; path = Classes/TiSearchDisplayController.h; sourceTree = "<group>"; };
+		B63B54FC1BF1F9480027F0C7 /* TiSearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiSearchDisplayController.m; path = Classes/TiSearchDisplayController.m; sourceTree = "<group>"; };
+		B63B54FF1BF206E30027F0C7 /* TiCollectionviewHeaderFooterReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiCollectionviewHeaderFooterReusableView.h; path = Classes/TiCollectionviewHeaderFooterReusableView.h; sourceTree = "<group>"; };
+		B63B55001BF206E30027F0C7 /* TiCollectionviewHeaderFooterReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiCollectionviewHeaderFooterReusableView.m; path = Classes/TiCollectionviewHeaderFooterReusableView.m; sourceTree = "<group>"; };
+		D2AAC07E0554694100DB518D /* libTiCollectionview.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTiCollectionview.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libTiCollectionview.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* TiCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = TiCollectionView;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2C69B35126CEBF0800AC945D /* CHTCollectionViewWaterfallLayout */,
+				DBF01E4E1EA75A3400049682 /* Module */,
+				DBF01E4A1EA759DA00049682 /* Search */,
+				DBF01E491EA759D100049682 /* Section */,
+				DBF01E4D1EA759F800049682 /* Item */,
+				DBF01E4B1EA759E000049682 /* Header & Footer */,
+				DBF01E4C1EA759E900049682 /* Collection View */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		2C69B35126CEBF0800AC945D /* CHTCollectionViewWaterfallLayout */ = {
+			isa = PBXGroup;
+			children = (
+				2C69B35226CEBF0800AC945D /* CHTCollectionViewWaterfallLayout.m */,
+				2C69B35326CEBF0800AC945D /* CHTCollectionViewWaterfallLayout.h */,
+			);
+			name = CHTCollectionViewWaterfallLayout;
+			path = Classes/CHTCollectionViewWaterfallLayout;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AA747D9E0F9514B9006C5449 /* TiCollectionview_Prefix.pch */,
+				24DD6D1B1134B66800162E58 /* titanium.xcconfig */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		DBF01E491EA759D100049682 /* Section */ = {
+			isa = PBXGroup;
+			children = (
+				B63B54F71BF1F9300027F0C7 /* TiCollectionviewCollectionSectionProxy.h */,
+				B63B54F81BF1F9300027F0C7 /* TiCollectionviewCollectionSectionProxy.m */,
+			);
+			name = Section;
+			sourceTree = "<group>";
+		};
+		DBF01E4A1EA759DA00049682 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B63B54FB1BF1F9480027F0C7 /* TiSearchDisplayController.h */,
+				B63B54FC1BF1F9480027F0C7 /* TiSearchDisplayController.m */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		DBF01E4B1EA759E000049682 /* Header & Footer */ = {
+			isa = PBXGroup;
+			children = (
+				B63B54FF1BF206E30027F0C7 /* TiCollectionviewHeaderFooterReusableView.h */,
+				B63B55001BF206E30027F0C7 /* TiCollectionviewHeaderFooterReusableView.m */,
+			);
+			name = "Header & Footer";
+			sourceTree = "<group>";
+		};
+		DBF01E4C1EA759E900049682 /* Collection View */ = {
+			isa = PBXGroup;
+			children = (
+				1E65CF5E1A12C16000187D0B /* TiCollectionviewCollectionView.h */,
+				1E65CF5F1A12C16000187D0B /* TiCollectionviewCollectionView.m */,
+				1E65CF601A12C16000187D0B /* TiCollectionviewCollectionViewProxy.h */,
+				1E65CF611A12C16000187D0B /* TiCollectionviewCollectionViewProxy.m */,
+			);
+			name = "Collection View";
+			sourceTree = "<group>";
+		};
+		DBF01E4D1EA759F800049682 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				1E65CF5A1A12C0DF00187D0B /* TiCollectionviewCollectionItemProxy.h */,
+				1E65CF5B1A12C0DF00187D0B /* TiCollectionviewCollectionItemProxy.m */,
+				1E65CF561A12BDF800187D0B /* TiCollectionviewCollectionItem.h */,
+				1E65CF571A12BDF800187D0B /* TiCollectionviewCollectionItem.m */,
+			);
+			name = Item;
+			sourceTree = "<group>";
+		};
+		DBF01E4E1EA75A3400049682 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				24DE9E0F11C5FE74003F90F6 /* TiCollectionviewModuleAssets.h */,
+				24DE9E1011C5FE74003F90F6 /* TiCollectionviewModuleAssets.m */,
+				24DD6CF71134B3F500162E58 /* TiCollectionviewModule.h */,
+				24DD6CF81134B3F500162E58 /* TiCollectionviewModule.m */,
+			);
+			name = Module;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E65CF641A12C16000187D0B /* TiCollectionviewCollectionViewProxy.h in Headers */,
+				AA747D9F0F9514B9006C5449 /* TiCollectionview_Prefix.pch in Headers */,
+				24DD6CF91134B3F500162E58 /* TiCollectionviewModule.h in Headers */,
+				B63B54FD1BF1F9480027F0C7 /* TiSearchDisplayController.h in Headers */,
+				1E65CF5C1A12C0DF00187D0B /* TiCollectionviewCollectionItemProxy.h in Headers */,
+				24DE9E1111C5FE74003F90F6 /* TiCollectionviewModuleAssets.h in Headers */,
+				2C69B35526CEBF0800AC945D /* CHTCollectionViewWaterfallLayout.h in Headers */,
+				1E65CF581A12BDF800187D0B /* TiCollectionviewCollectionItem.h in Headers */,
+				1E65CF621A12C16000187D0B /* TiCollectionviewCollectionView.h in Headers */,
+				B63B55011BF206E30027F0C7 /* TiCollectionviewHeaderFooterReusableView.h in Headers */,
+				B63B54F91BF1F9300027F0C7 /* TiCollectionviewCollectionSectionProxy.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* TiCollectionView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "TiCollectionView" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TiCollectionView;
+			productName = TiCollectionView;
+			productReference = D2AAC07E0554694100DB518D /* libTiCollectionview.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1300;
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "TiCollectionView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				Base,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* TiCollectionView */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* TiCollectionView */,
+				24416B8111C4CA220047AFDD /* Build & Test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24416B8011C4CA220047AFDD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here\n\npython \"${TITANIUM_SDK}/titanium.py\" run --dir=\"${PROJECT_DIR}\"\nexit $?\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E65CF631A12C16000187D0B /* TiCollectionviewCollectionView.m in Sources */,
+				24DD6CFA1134B3F500162E58 /* TiCollectionviewModule.m in Sources */,
+				B63B55021BF206E30027F0C7 /* TiCollectionviewHeaderFooterReusableView.m in Sources */,
+				1E65CF591A12BDF800187D0B /* TiCollectionviewCollectionItem.m in Sources */,
+				1E65CF651A12C16000187D0B /* TiCollectionviewCollectionViewProxy.m in Sources */,
+				B63B54FE1BF1F9480027F0C7 /* TiSearchDisplayController.m in Sources */,
+				B63B54FA1BF1F9300027F0C7 /* TiCollectionviewCollectionSectionProxy.m in Sources */,
+				1E65CF5D1A12C0DF00187D0B /* TiCollectionviewCollectionItemProxy.m in Sources */,
+				2C69B35426CEBF0800AC945D /* CHTCollectionViewWaterfallLayout.m in Sources */,
+				24DE9E1211C5FE74003F90F6 /* TiCollectionviewModuleAssets.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		24416B8511C4CA280047AFDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2AAC07D0554694100DB518D /* TiCollectionView */;
+			targetProxy = 24416B8411C4CA280047AFDD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DSTROOT = /tmp/TiCollectionview.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TiCollectionview_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DDEBUG",
+					"-DTI_POST_1_2",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = TiCollectionview;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				DSTROOT = /tmp/TiCollectionview.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TiCollectionview_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "-DTI_POST_1_2";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = TiCollectionview;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DSTROOT = /tmp/TiCollectionview.dst;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TiCollectionview_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-DDEBUG",
+					"-DTI_POST_1_2",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = TiCollectionview;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DSTROOT = /tmp/TiCollectionview.dst;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_MODEL_TUNING = G5;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TiCollectionview_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				OTHER_CFLAGS = "-DTI_POST_1_2";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = TiCollectionview;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		24416B8211C4CA220047AFDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Build & test";
+			};
+			name = Debug;
+		};
+		24416B8311C4CA220047AFDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = "Build & test";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "TiCollectionView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "TiCollectionView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24416B8211C4CA220047AFDD /* Debug */,
+				24416B8311C4CA220047AFDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
