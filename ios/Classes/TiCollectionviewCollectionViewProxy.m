@@ -112,6 +112,8 @@
 
 - (void)processUpdateActions
 {
+    [UIView performWithoutAnimation:^{
+
 	UICollectionView *tableView = self.listView.collectionView;
 	BOOL removeHead = NO;
 	while (YES) {
@@ -133,6 +135,7 @@
 			return;
 		}
 	}
+    }];
 }
 
 - (TiCollectionviewCollectionSectionProxy *)sectionForIndex:(NSUInteger)index

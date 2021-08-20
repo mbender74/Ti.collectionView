@@ -23,6 +23,8 @@
 @synthesize headerTitle = _headerTitle;
 @synthesize footerTitle = _footerTitle;
 
+UINavigationBar *navBar;
+
 -(NSString*)apiName
 {
     return @"Ti.CollectionSection";
@@ -75,6 +77,64 @@
         }
     }
 }
+
+
+- (CGFloat)heightDifferenceBetweenTopRowAndNavBar
+{
+    id proxy = [(TiViewProxy *)self.dispatcher parent];
+
+    CGRect rectForTopRow = [[proxy tableView] rectForRowAtIndexPath:[self getTopVisibleRow]];
+    
+       
+    
+   // [[proxy tableView] indexPathForRowAtPoint:pointWhereNavBarEnds]
+    
+    
+    CGRect whereIsNavBarInTableView = navBar.bounds;
+    CGPoint pointWhereNavBarEnds = CGPointMake(0, whereIsNavBarInTableView.origin.y + whereIsNavBarInTableView.size.height + 1);
+
+    
+    CGFloat differenceBetweenTopRowAndNavBar = rectForTopRow.origin.y - pointWhereNavBarEnds.y;
+    
+    return differenceBetweenTopRowAndNavBar;
+}
+
+
+
+- (NSIndexPath*)getTopVisibleRow
+ {
+
+     
+     id proxy = [(TiViewProxy *)self.dispatcher parent];
+     
+         while ([proxy isKindOfClass:[TiViewProxy class]] && ![proxy isKindOfClass:[TiWindowProxy class]]) {
+           proxy = [proxy parent];
+         }
+         UIViewController *controller;
+         if ([proxy isKindOfClass:[TiWindowProxy class]]) {
+           controller = [proxy windowHoldingController];
+         } else {
+           controller = [[TiApp app] controller];
+         }
+         if (!controller.navigationItem.searchController) {
+           [controller.navigationController.navigationBar sizeToFit];
+         }
+     
+     
+        //We need this to accounts for the translucency below the nav bar
+     navBar = controller.navigationController.navigationBar;
+
+     CGRect whereIsNavBarInTableView = navBar.bounds;
+     
+     
+     CGPoint pointWhereNavBarEnds = CGPointMake(0, whereIsNavBarInTableView.origin.y + whereIsNavBarInTableView.size.height + 1);
+     
+     
+     NSIndexPath *accurateIndexPath = [[proxy tableView] indexPathForRowAtPoint:pointWhereNavBarEnds];
+     
+     return accurateIndexPath;
+ }
+
 
 
 
@@ -187,13 +247,77 @@
 			DLog(@"[WARN] ListView: Insert item index is out of range");
 			return;
 		}
-		[_items replaceObjectsInRange:NSMakeRange(insertIndex, 0) withObjectsFromArray:items];
-		NSUInteger count = [items count];
-		NSMutableArray *indexPaths = [[NSMutableArray alloc] initWithCapacity:count];
-		for (NSUInteger i = 0; i < count; ++i) {
-			[indexPaths addObject:[NSIndexPath indexPathForRow:insertIndex+i inSection:_sectionIndex]];
-		}
-		[tableView insertItemsAtIndexPaths:indexPaths];
+       // CGPoint contentOffet = tableView.contentOffset;
+
+        
+        [UIView performWithoutAnimation:^{
+            CGFloat cellheight = 44;
+
+
+            [_items replaceObjectsInRange:NSMakeRange(insertIndex, 0) withObjectsFromArray:items];
+            NSUInteger count = [items count];
+            NSMutableArray *indexPaths = [[NSMutableArray alloc] initWithCapacity:count];
+            for (NSUInteger i = 0; i < count; ++i) {
+                             
+                [indexPaths addObject:[NSIndexPath indexPathForRow:insertIndex+i inSection:_sectionIndex]];
+            }
+            
+//            TiCollectionviewCollectionItem *cell = (TiCollectionviewCollectionItem *)[tableView cellForItemAtIndexPath:[indexPaths objectAtIndex:0]];
+//            id rowProxyHeight = [cell.proxy valueForUndefinedKey:@"height"];
+//            if (rowProxyHeight && ![rowProxyHeight isEqual:@"SIZE"]) {
+//                 cellheight = [TiUtils floatValue:rowProxyHeight];
+//                   //row.height = [NSNumber numberWithFloat:cellheight];
+//                //   NSLog(@"row.height %f",cellheight);
+//               //   NSLog(@"row.height %f",cellheight);
+//
+//            }
+//            CGPoint contentOffet = tableView.contentOffset;
+//           // NSLog(@"row.preoffset  %f\n",contentOffet.y);
+//
+//            CGFloat preoffset = contentOffet.y;
+//            CGFloat afteroffset = 0;
+//            afteroffset = preoffset + cellheight;//
+//            contentOffet.y = afteroffset;
+//         //   [tableview beginUpdates];
+//            [tableView setContentOffset:contentOffet];
+//            
+//
+//
+//            NSInteger topRowIndex = [self getTopVisibleRow].row;
+//
+//            NSInteger topWillBeAt = ((int)topRowIndex + count);
+//
+//
+//            CGFloat oldHeightDifferenceBetweenTopRowAndNavBar = [self heightDifferenceBetweenTopRowAndNavBar];
+                        
+
+              //  [tableView setContentOffset:contentOffet];
+
+            
+            
+            
+                [tableView insertItemsAtIndexPaths:indexPaths];
+
+            
+            
+        
+            
+//            [tableView scrollToItemAtIndexPath:[indexPaths objectAtIndex:0] atScrollPosition:topWillBeAt animated:NO];
+//
+//            CGPoint newcontentOffet = tableView.contentOffset;
+//
+//            newcontentOffet.y = newcontentOffet.y - oldHeightDifferenceBetweenTopRowAndNavBar;
+//
+//            [tableView setContentOffset:newcontentOffet];
+
+            
+            //   [tableview endUpdates];
+          
+        }];
+        
+        
+        
+		
 	}];
 }
 

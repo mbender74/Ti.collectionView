@@ -5,7 +5,9 @@
  * Please see the LICENSE included with this distribution for details.
  */
 
+#import "TiApp.h"
 #import "TiViewProxy.h"
+#import "TiWindowProxy.h"
 #import "TiCollectionviewCollectionSectionProxy.h"
 
 @interface TiCollectionviewCollectionViewProxy : TiViewProxy < TiCollectionviewCollectionViewDelegate >

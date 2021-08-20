@@ -4,6 +4,7 @@
  * Licensed under the terms of the Apache Public License
  * Please see the LICENSE included with this distribution for details.
  */
+#define USE_TI_UISEARCHBAR
 
 #import "TiCollectionviewModule.h"
 #import "TiCollectionviewCollectionView.h"
@@ -11,11 +12,7 @@
 #import "TiCollectionviewCollectionItem.h"
 #import "TiCollectionviewCollectionItemProxy.h"
 #import "TiUILabelProxy.h"
-
-#define USE_TI_UISEARCHBAR
 #import "TiUISearchBarProxy.h"
-#import "TiUISearchBar.h"
-
 #import "TiCollectionviewHeaderFooterReusableView.h"
 #import "ImageLoader.h"
 #ifdef USE_TI_UIREFRESHCONTROL
@@ -151,7 +148,18 @@ static TiViewProxy * FindViewProxyWithBindIdContainingPoint(UIView *view, CGPoin
 
 - (UICollectionView *)collectionView
 {
-    LayoutType layoutType = [TiUtils intValue:[[self proxy] valueForKey:@"layout"] def:kLayoutTypeGrid];
+    
+    LayoutType layoutType = kLayoutTypeGrid;
+    
+    int layoutTypeForCollectionView = [TiUtils intValue:[[self proxy] valueForKey:@"layout"] def:1];
+    if (layoutTypeForCollectionView == 1){
+        layoutType = kLayoutTypeGrid;
+    }
+    else {
+        layoutType = kLayoutTypeWaterfall;
+    }
+    
+    
     if (_collectionView == nil) {
         
         if (layoutType == kLayoutTypeWaterfall) {
@@ -619,21 +627,65 @@ static TiViewProxy * FindViewProxyWithBindIdContainingPoint(UIView *view, CGPoin
     }, NO);
 }
 
+
+
+
 -(void)setContentInsets_:(id)value withObject:(id)props
 {
+    
     UIEdgeInsets insets = [TiUtils contentInsets:value];
+    UIEdgeInsets insetsScroll = [TiUtils contentInsets:value];
+
+    int newoffset = [TiUtils intValue:@"newoffset" properties:props def:0];
+
+    int safeArea = [TiUtils intValue:@"safearea" properties:props def:0];
+
     BOOL animated = [TiUtils boolValue:@"animated" properties:props def:NO];
+    BOOL nobottom = [TiUtils boolValue:@"nobottom" properties:props def:NO];
+    BOOL noOffset = [TiUtils boolValue:@"noOffset" properties:props def:NO];
+
+    
     void (^setInset)(void) = ^{
-        [_collectionView setContentInset:insets];
+        
+        [self->_collectionView setContentInset:insets];
+        [self->_collectionView setScrollIndicatorInsets:insets];
+        
+        if (noOffset == NO){
+            if (nobottom == NO){
+                CGSize svContentSize = self->_collectionView.contentSize;
+                CGSize svBoundSize = self->_collectionView.bounds.size;
+                CGFloat svBottomInsets = self->_collectionView.contentInset.bottom;
+                CGFloat bottomHeight = svContentSize.height - svBoundSize.height + svBottomInsets + safeArea;
+                CGFloat bottomWidth = svContentSize.width - svBoundSize.width;
+
+                CGPoint newOffset = CGPointMake(bottomWidth, bottomHeight);
+
+                [self->_collectionView setContentOffset:newOffset];
+            }
+            if (newoffset != 0){
+                CGSize svContentSize = self->_collectionView.contentSize;
+                CGSize svBoundSize = self->_collectionView.bounds.size;
+                CGFloat svBottomInsets = self->_collectionView.contentInset.bottom;
+                CGFloat bottomHeight = svContentSize.height - svBoundSize.height + svBottomInsets + safeArea;
+                CGFloat bottomWidth = svContentSize.width - svBoundSize.width;
+
+                CGPoint newOffset = CGPointMake(bottomWidth, newoffset);
+
+                [self->_collectionView setContentOffset:newOffset];
+            }
+        }
+
     };
     if (animated) {
-        double duration = [TiUtils doubleValue:@"duration" properties:props def:300]/1000;
+        double duration = [TiUtils doubleValue:@"duration" properties:props def:180]/1000;
         [UIView animateWithDuration:duration animations:setInset];
     }
     else {
         setInset();
     }
 }
+
+
 
 - (void)setDictTemplates_:(id)args
 {
@@ -1054,23 +1106,138 @@ static TiViewProxy * FindViewProxyWithBindIdContainingPoint(UIView *view, CGPoin
     return _footerViewProxy.view.frame.size;
 }
 
+
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
     NSIndexPath* realPath = [self pathForSearchPath:indexPath];
     
+//    id heightValue = [self valueWithKey:@"height" atIndexPath:realPath];
+////
+////    CGFloat height = 100.0f;
+////    if (heightValue != nil) {
+////        height = [TiUtils dimensionValue:heightValue].value;
+////    }
+////
+//    id widthValue = [self valueWithKey:@"width" atIndexPath:realPath];
+////    CGFloat width = 100.0f;
+////    if (widthValue != nil) {
+////        width = [TiUtils dimensionValue:widthValue].value;
+////    }
+//
+//
+//    if (TiDimensionIsDip(heightValue) && TiDimensionIsDip(widthValue)) {
+//       return CGSizeMake([TiUtils dimensionValue:widthValue].value,[TiUtils dimensionValue:heightValue].value);
+//    }
+      
+    
     id heightValue = [self valueWithKey:@"height" atIndexPath:realPath];
-    
-    CGFloat height = 100.0f;
-    if (heightValue != nil) {
-        height = [TiUtils dimensionValue:heightValue].value;
-    }
-    
     id widthValue = [self valueWithKey:@"width" atIndexPath:realPath];
-    CGFloat width = 100.0f;
-    if (widthValue != nil) {
-        width = [TiUtils dimensionValue:widthValue].value;
-    }
-    return CGSizeMake(width, height);
+
+      TiDimension height = [TiUtils dimensionValue:heightValue];
+      TiDimension width = [TiUtils dimensionValue:widthValue];
+
+
+  if (TiDimensionIsDip(height) && TiDimensionIsDip(width)) {
+   //   NSLog(@"\n\n dip size");
+
+      return CGSizeMake(width.value,height.value);
+   }
+  else if (TiDimensionIsAutoSize(height) || TiDimensionIsUndefined(height) || TiDimensionIsAutoFill(height)) {
+
+
+TiCollectionviewCollectionSectionProxy *theSection = [self.listViewProxy sectionForIndex:realPath.section];
+NSDictionary *item = [theSection itemAtIndex:realPath.row]; //get the item data
+
+id templateId = [item objectForKey:@"template"];
+if (templateId == nil) {
+templateId = _defaultItemTemplate;
+}
+
+      
+      
+      
+//  if (![templateId isKindOfClass:[NSNumber class]]) {
+      UICollectionViewCell* theCell = [_collectionView cellForItemAtIndexPath:realPath];
+if (theCell != nil) {
+  //  NSLog(@"\n\n theCell not null");
+
+   CGFloat maxWidth = collectionView.bounds.size.width;
+      if (maxWidth > 0) {
+          
+          
+          TiCollectionviewCollectionItemProxy *theProxy = ((TiCollectionviewCollectionItem*)theCell).proxy;
+          #ifndef TI_USE_AUTOLAYOUT
+              [theProxy layoutProperties]->height = TiDimensionAutoSize;
+              [theProxy layoutProperties]->width = TiDimensionAutoFill;
+          #endif
+
+       //   NSLog(@"\n\n templateSIZE");
+
+          return CGSizeMake(maxWidth, [theProxy minimumParentHeightForSize:CGSizeMake(maxWidth, self.bounds.size.height)]);
+
+
+              //CGFloat result = [theProxy minimumParentHeightForSize:CGSizeMake(maxWidth, self.bounds.size.height)];
+      }
+}
+// }
+  //    NSLog(@"\n\n defaultSiZE");
+
+
+//   theCell.contentView.translatesAutoresizingMaskIntoConstraints = NO;
+
+     // [theCell setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
+
+
+//            CGFloat viewWidth = 0.0;
+//            int viewHeight = 0;
+//
+//           // if ([heightValue isEqual:@"SIZE"] || !heightValue) {
+//
+//                viewWidth = [theCell.proxy.view autoWidthForSize:CGSizeMake(1000, 1000)];
+//
+//
+//                CGFloat result = 0;
+//              #ifndef TI_USE_AUTOLAYOUT
+//                if (TiDimensionIsAuto([TiUtils dimensionValue:heightValue]) || TiDimensionIsAutoSize([TiUtils dimensionValue:heightValue]) || TiDimensionIsUndefined([TiUtils dimensionValue:heightValue])) {
+//                  result = [self minimumParentHeightForSize:CGSizeMake(viewWidth, collectionView.bounds.size.height)];
+//                }
+//                if (TiDimensionIsPercent([TiUtils dimensionValue:heightValue]) && collectionView != nil) {
+//                  result = TiDimensionCalculateValue([TiUtils dimensionValue:heightValue], collectionView.bounds.size.height);
+//                }
+//              #endif
+//
+//
+//
+//
+//                CGFloat calculatedRowHeight = ceil(result);
+//
+//                NSLog(@"calculatedRowHeight %f",calculatedRowHeight);
+//
+//                viewHeight = (int) calculatedRowHeight;
+        //  NSLog(@"viewHeight %i",viewHeight);
+
+         // viewHeight = [value autoHeightForSize:CGSizeMake(viewWidth, 0)] + 10;
+    //  }
+
+      TiCollectionviewCollectionItem *theOtherCell = [self collectionView:collectionView cellForItemAtIndexPath:realPath];
+
+      TiCollectionviewCollectionItemProxy *theOtherProxy = [theOtherCell proxy];
+
+      [theOtherProxy layoutProperties]->height = TiDimensionAutoSize;
+      [theOtherProxy layoutProperties]->width = TiDimensionAutoFill;
+      CGFloat result = [theOtherProxy minimumParentHeightForSize:CGSizeMake(collectionView.bounds.size.width, self.bounds.size.height)];
+      
+//      [theOtherProxy replaceValue:[NSNumber numberWithFloat:result] forKey:@"height" notification:NO];
+
+      
+     // NSLog(@"calculatedRowHeight %f",result);
+      return CGSizeMake(collectionView.bounds.size.width,result);
+
+  }
+
+    
+    
 }
 
 
@@ -1117,20 +1284,30 @@ static TiViewProxy * FindViewProxyWithBindIdContainingPoint(UIView *view, CGPoin
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    //Events - pull (maybe scroll later)
-    if (![self.proxy _hasListeners:@"pull"]) {
-        return;
-    }
-    
-    if ((_pullViewProxy != nil) && ([scrollView isTracking])) {
-        if ((scrollView.contentOffset.y < pullThreshhold) && (pullActive == NO)) {
-            pullActive = YES;
-            [self.proxy fireEvent:@"pull" withObject:[NSDictionary dictionaryWithObjectsAndKeys:NUMBOOL(pullActive),@"active",nil] withSource:self.proxy propagate:NO reportSuccess:NO errorCode:0 message:nil];
-        } else if ((scrollView.contentOffset.y > pullThreshhold) && (pullActive == YES)) {
-            pullActive = NO;
-            [self.proxy fireEvent:@"pull" withObject:[NSDictionary dictionaryWithObjectsAndKeys:NUMBOOL(pullActive),@"active",nil] withSource:self.proxy propagate:NO reportSuccess:NO errorCode:0 message:nil];
+    if ([self.proxy _hasListeners:@"pull"]) {
+        if ((_pullViewProxy != nil) && ([scrollView isTracking])) {
+            if ((scrollView.contentOffset.y < pullThreshhold) && (pullActive == NO)) {
+                pullActive = YES;
+                [self.proxy fireEvent:@"pull" withObject:[NSDictionary dictionaryWithObjectsAndKeys:NUMBOOL(pullActive),@"active",nil] withSource:self.proxy propagate:NO reportSuccess:NO errorCode:0 message:nil];
+            } else if ((scrollView.contentOffset.y > pullThreshhold) && (pullActive == YES)) {
+                pullActive = NO;
+                [self.proxy fireEvent:@"pull" withObject:[NSDictionary dictionaryWithObjectsAndKeys:NUMBOOL(pullActive),@"active",nil] withSource:self.proxy propagate:NO reportSuccess:NO errorCode:0 message:nil];
+            }
         }
     }
+    if ([self.proxy _hasListeners:@"scroll"]) {
+        if ([self isLazyLoadingEnabled]) {
+            [[ImageLoader sharedLoader] suspend];
+        }
+       // NSLog(@"[ERROR] scroll in SDK:");
+        NSDictionary *event = [NSDictionary dictionaryWithObjectsAndKeys:
+                             [TiUtils pointToDictionary:scrollView.contentOffset], @"contentOffset",
+                             [TiUtils sizeToDictionary:scrollView.contentSize], @"contentSize",
+                             [TiUtils sizeToDictionary:scrollView.bounds.size], @"size",
+                             nil];
+      [self.proxy fireEvent:@"scroll" withObject:event];
+    }
+    
     
 }
 
